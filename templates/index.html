@@ -1,0 +1,127 @@
+<!doctype html>
+<!--
+	Solution by GetTemplates.co
+	URL: https://gettemplates.co
+-->
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- awesone fonts css-->
+    <link href="{{url_for('static',filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css">
+    <!-- owl carousel css-->
+    <link rel="stylesheet" href="{{url_for('static',filename='owl-carousel/assets/owl.carousel.min.css')}}" type="text/css">
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+	
+    <title>UpX - Machine Learning
+Models -GridSearchCV Results</title>
+    <style>
+
+    </style>
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-transparent" id="gtco-main-nav">
+    <div style="margin-left: 80px;"><img src="{{url_for('static', filename='images/logo.png')}}" alt="" height="100" width="166"></div>
+
+
+    <div class="container"><a class="navbar-brand">Machine Learning
+Models</a>
+        <button class="navbar-toggler" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse"><span
+                class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span></button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+              
+            </ul>
+       
+        </div>
+    </div>
+</nav>
+<div class="container-fluid gtco-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <h4> GridSearch CV </h4>
+<br>
+<span >Choose dataset.</span>
+<form action="/uploader" method="POST" enctype="multipart/form-data">
+ 
+                	<input type="file" name="file" multiple="">
+           <br>
+     <div style="margin-left: 220px; vertical-align:right">
+          <button type="submit">Upload</button> 
+		   <br>
+</div>
+</form>
+<br>
+ <span>Choose model type: Classification or Regression</span>
+<form action="{{ url_for('performGCV')}}" method="POST" enctype="multipart/form-data">
+
+<select name="cars">
+    <option value="1">Classification</option>
+    <option value="2">Regression</option>
+   
+  </select>
+  <br>
+  <br>
+   <span>Choose X,y and test_size parameters of data set to perform gridsearchcv for all the models.</span>
+             <input type="text" name="X" placeholder="X" required="required" />
+        <input type="text" name="y" placeholder="y" required="required" />
+		<input type="text" name="test_size" placeholder="test_size" required="required" />
+           
+        
+        
+ <br>
+     <div style="margin-left: 220px;">
+          <button type="submit">Perform GridSearch</button> 
+</div>
+<div>
+ <!-- {{ prediction_text }} -->
+
+ 
+ {% block content %}
+
+        <h4>{{prediction_text | safe}}</h4>
+
+
+{% endblock %}
+</div>
+</form>
+
+
+            <!-- </div> -->
+            <!-- <div class="col-md-6"> -->
+                <!-- <div class="card"><img class="card-img-top img-fluid" src="{{url_for('static', filename='images/banner-img.png')}}" alt=""></div> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    </div>
+</div>
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{{url_for('static', filename='js/jquery-3.3.1.slim.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<!-- owl carousel js-->
+<script src="{{url_for('static', filename='owl-carousel/owl.carousel.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:600,700' rel='stylesheet' type='text/css'>
+
+
+<!-- BUTTON CSSS  -->
+
+
+</body>
+</html>
